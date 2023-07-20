@@ -1,0 +1,55 @@
+<odoo>
+
+    <record id="dashboard_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets Dashboard</field>
+        <field name="res_model">dashboard.main</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="sql_dashboard.dashboard_graph"/>
+    </record>
+
+    <record id="dashboard_ticket_team" model="ir.actions.act_window">
+        <field name="name">Tickets Dashboard</field>
+        <field name="res_model">dashboard.main</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="sql_dashboard.dashboard_graph_team"/>
+    </record>
+
+
+    <record id="dashboard_form_view" model="ir.ui.view">
+        <field name="name">Dashboard Form</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="1-2">
+                    <column>
+                        <action
+                            string="Team Tickets"
+                            name="%(sql_dashboard.dashboard_ticket_team)d"/>
+                        
+                    </column>
+                    <column>
+                        <action
+                            string="Specific Tickets"
+                            name="%(sql_dashboard.dashboard_ticket)d"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record id="sql_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="dashboard_form_view"/>
+    </record>
+
+        <menuitem 
+            name="Ticket Dashboard"
+            parent="menu_dashboard_root"
+            action="sql_dashboard"
+            sequence="1"
+            id="menu_dashboard"/>
+
+</odoo>

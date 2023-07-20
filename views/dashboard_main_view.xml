@@ -1,0 +1,53 @@
+<odoo>
+  <record id="view_dashboard_tree" model="ir.ui.view">
+        <field name="name">dashboard.main.tree</field>
+        <field name="model">dashboard.main</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="number"/>
+                <field name="subject"/>
+                <field name="status"/>
+                <field name="ticket_creator"/>
+                <field name="team_name"/>
+                <field name="firstname"/>
+                <field name="lastname"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_graph" model="ir.ui.view">
+      <field name="name">dashboard.main.graph</field>
+      <field name="model">dashboard.main</field>
+      <field name="arch" type="xml">
+        <graph string="Dashboard Graph" type="bar">
+          <field name="firstname"/>
+          <field name="status"/>
+        </graph>
+      </field>
+    </record>
+
+    <record id="dashboard_graph_team" model="ir.ui.view">
+      <field name="name">dashboard.main.graph</field>
+      <field name="model">dashboard.main</field>
+      <field name="arch" type="xml">
+        <graph string="Dashboard Graph" type="pie">
+          <field name="team_name"/>
+          <field name="status"/>
+        </graph>
+      </field>
+    </record>
+
+    <record id="dashboard_main_action" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dashboard.main</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_dashboard_root"
+        name="Obanana Support"
+        sequence="10"
+        action="dashboard_main_action"/>
+</odoo>
