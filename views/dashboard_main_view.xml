@@ -12,6 +12,9 @@
                 <field name="team_name"/>
                 <field name="firstname"/>
                 <field name="lastname"/>
+                <field name="date_created"/>
+                <field name="days_since_creation"/>
+                <field name="creation_date_group"/>
                 
             </tree>
         </field>
@@ -45,6 +48,17 @@
       <field name="arch" type="xml">
         <graph string="Dashboard Graph" type="bar">
           <field name="ticket_priority"/>
+          <field name="status"/>
+        </graph>
+      </field>
+    </record>
+
+    <record id="dashboard_graph_date" model="ir.ui.view">
+      <field name="name">dashboard.main.graph</field>
+      <field name="model">dashboard.main</field>
+      <field name="arch" type="xml">
+        <graph string="Dashboard Graph" type="pie">
+          <field name="creation_date_group"/>
           <field name="status"/>
         </graph>
       </field>

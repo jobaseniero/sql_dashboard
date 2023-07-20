@@ -21,6 +21,13 @@
         <field name="view_id" ref="sql_dashboard.dashboard_graph_priority"/>
     </record>
 
+    <record id="dashboard_ticket_date" model="ir.actions.act_window">
+        <field name="name">Tickets Dashboard</field>
+        <field name="res_model">dashboard.main</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="sql_dashboard.dashboard_graph_date"/>
+    </record>
+
 
     <record id="dashboard_form_view" model="ir.ui.view">
         <field name="name">Dashboard Form</field>
@@ -42,6 +49,10 @@
                         <action
                             string="Open Tickets by Staff"
                             name="%(sql_dashboard.dashboard_ticket)d"/>
+
+                        <action
+                            string="Open Tickets by Age"
+                            name="%(sql_dashboard.dashboard_ticket_date)d"/>
                     </column>
                 </board>
             </form>
