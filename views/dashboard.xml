@@ -34,7 +34,7 @@
         <field name="model">board.board</field>
         <field name="arch" type="xml">
             <form string="Dashboard">
-                <board style="1-2">
+                <board style="1-1-1">
                     <column>
                         <action
                             string="Open Tickets by Team"
@@ -53,6 +53,8 @@
                         <action
                             string="Open Tickets by Age"
                             name="%(sql_dashboard.dashboard_ticket_date)d"/>
+                    </column>
+                    <column>
                     </column>
                 </board>
             </form>
